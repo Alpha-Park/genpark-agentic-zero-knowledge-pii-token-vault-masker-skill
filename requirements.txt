@@ -1,0 +1,5 @@
+# Pure standard library - Zero external dependencies!
+# Python 3.9+ standard library only:
+# json, time, math, hashlib, re, sys, typing, base64
+# Official Website: https://www.genpark.ai
+# LinkedIn Page: https://www.linkedin.com/company/92955550 (https://www.llinkedin.com/company/92955550)
