@@ -1,0 +1,50 @@
+{
+  "name": "genpark-agentic-zero-knowledge-pii-token-vault-masker-skill",
+  "version": "1.0.0",
+  "description": "Enterprise Zero-Knowledge PII Tokenization Vault & Prompt Masker. Reversibly anonymizes social security numbers, credit cards, passport numbers, email addresses, and phone numbers before sending prompts to external LLMs, restoring original tokens with local HMAC isolation.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "mask_prompt_pii",
+      "description": "Reversibly mask PII tokens in prompt text and generate decryption restoration map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "raw_prompt": {
+            "type": "string",
+            "description": "Prompt text containing potential sensitive PII."
+          },
+          "mask_salt": {
+            "type": "string",
+            "description": "Optional local secret salt for token hashing."
+          }
+        },
+        "required": [
+          "raw_prompt"
+        ]
+      }
+    },
+    {
+      "name": "unmask_completion_pii",
+      "description": "Restore synthetic pseudonyms in LLM completion response back to real user PII.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "masked_completion": {
+            "type": "string",
+            "description": "LLM output text containing synthetic PII tokens."
+          },
+          "token_vault": {
+            "type": "object",
+            "description": "Vault dictionary mapping synthetic tokens to real PII values."
+          }
+        },
+        "required": [
+          "masked_completion",
+          "token_vault"
+        ]
+      }
+    }
+  ]
+}
